@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TROEF! – Kaarten, kwartet en domino in één pak</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="banner">Bedankt om TROEF! te steunen. Met elk pak help je ons en een lokaal goed doel. <a href="#steun">Lees hoe</a></div>
+
+<header><div class="wrap"><nav aria-label="Hoofdmenu">
+  <a class="logo" href="#top">TROEF!</a>
+  <ul>
+    <li><a href="#klassiek">Klassiek</a></li><li><a href="#kwartet">Kwartet</a></li><li><a href="#domino">Domino</a></li><li><a href="#extra">Meer spellen</a></li>
+    <li><a class="knop klein" href="#steun">Koop een pak</a></li>
+  </ul>
+</nav></div></header>
+
+<main id="top">
+<div class="wrap hero">
+  <div>
+    <h1>TROEF!</h1>
+    <p>Eén pak kaarten, drie spellen. Leer rustig de basis, bekijk een voorbeeld en probeer daarna zelf.</p>
+    <a class="knop" href="#klassiek">Leer de spellen</a>
+    <a class="knop licht" href="#steun">Koop een pak</a>
+  </div>
+  <div class="motief" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div>
+
+<section id="steun"><div class="wrap">
+  <div class="steunblok">
+    <div>
+      <h2>Bedankt dat je ons steunt</h2>
+      <p>Elk pak TROEF! helpt ons project op weg. Een deel van de opbrengst gaat naar een lokaal goed doel, zodat jouw spelletje ook iets goeds doet.</p>
+    </div>
+    <a class="knop" href="#" id="koop">Koop een pak</a>
+  </div>
+</div></section>
+
+<section id="klassiek"><div class="wrap">
+  <h2>Klassiek kaarten</h2>
+  <p class="intro">Een pak heeft 52 kaarten. Bij een slag speelt iedereen één kaart. De hoogste kaart van het symbool waarmee gestart werd, wint de slag. Een troefkaart kan die regel later doorbreken.</p>
+  <div class="rij-kaarten" id="klassiek-rij" aria-label="Alle 13 kaarten van harten"></div>
+  <p class="onder">2 t/m 10, daarna boer (J), vrouw (Q), heer (K) en aas (A).</p>
+  <ul class="feiten"><li>52 kaarten</li><li>4 symbolen</li><li>13 waarden per symbool</li></ul>
+  <button class="knop uitleg-knop" data-tut="klassiek">Bekijk de uitleg</button>
+</div></section>
+
+<section id="kwartet"><div class="wrap">
+  <h2>Kwartet</h2>
+  <p class="intro">Elke kaart hoort bij een familie van 4 kaarten. Rechtsboven staat welke kaart het is: “3/4” is kaart 3 van 4. Verzamel alle 4 en je hebt een kwartet.</p>
+  <div class="rij-kaarten" id="kwartet-rij" aria-label="De familie Vogels"></div>
+  <p class="onder">De familie Vogels: 4 kaarten, dus 1 kwartet.</p>
+  <ul class="feiten"><li>2 tot 6 spelers</li><li>5 kaarten per speler</li><li>Meeste kwartetten wint</li></ul>
+  <button class="knop uitleg-knop" data-tut="kwartet">Bekijk de uitleg</button>
+</div></section>
+
+<section id="domino"><div class="wrap">
+  <h2>Domino</h2>
+  <p class="intro">Onderaan elke kaart staan twee waarden met stippen. Leg kaarten aan elkaar zodat dezelfde stippen elkaar raken. Probeer het zelf: klik op een kaart met een gele rand.</p>
+  <div class="demo" id="demo-domino">
+    <p class="label">Rij op tafel</p>
+    <div class="tafel rij" id="dm-rij"></div>
+    <p class="label">Jouw hand</p>
+    <div class="dm-onder">
+      <div class="tafel rij" id="dm-hand"></div>
+      <div class="stapel"><div class="steen dicht" id="dm-stapel"></div><span>Stapel</span></div>
+    </div>
+    <p class="uitleg" id="dm-tekst" aria-live="polite"></p>
+    <div class="stappen"><button id="dm-pak">Pak een kaart</button><button id="dm-reset">Opnieuw</button></div>
+  </div>
+  <ul class="feiten"><li>2 tot 4 spelers</li><li>7 kaarten per speler</li><li>Eerste met lege hand wint</li></ul>
+  <button class="knop uitleg-knop" data-tut="domino">Bekijk de uitleg</button>
+</div></section>
+
+<section id="extra"><div class="wrap">
+  <h2>Meer kaartspelen</h2>
+  <p class="intro">Met de gewone kaarten speel je nog veel meer.</p>
+  <details open>
+    <summary>Pesten</summary>
+    <div class="inhoud">
+      <p>2 tot 6 spelers. Leg een kaart met hetzelfde symbool of dezelfde waarde. Wie als eerste geen kaarten meer heeft, wint. Speciale kaarten:</p>
+      <div class="rij-kaarten mini" data-kaarten="2H,7S,8D,JC,AH"></div>
+      <ul><li><strong>2:</strong> de volgende pakt 2 kaarten.</li><li><strong>7:</strong> je mag nog een keer.</li><li><strong>8:</strong> de volgende slaat over.</li><li><strong>Boer (J):</strong> jij kiest het symbool.</li><li><strong>Aas:</strong> de richting draait om.</li></ul>
+    </div>
+  </details>
+  <details><summary>Liegen</summary><div class="inhoud"><p>Leg kaarten gesloten neer en zeg wat het is. Gelooft de volgende speler je niet? Dan roept hij “Liegen!” en draait de kaarten om. Wie het fout had, pakt de stapel. Wie als eerste geen kaarten meer heeft, wint.</p></div></details>
+  <details><summary>Oorlog</summary><div class="inhoud"><p>Twee spelers draaien tegelijk een kaart om. De hoogste wint beide. Gelijk? Dan is het oorlog: leg 3 kaarten gesloten neer en draai er nog één om.</p></div></details>
+</div></section>
+</main>
+
+<footer><div class="wrap"><span class="logo">TROEF!</span><p>Een schoolproject. Kaarten, kwartet en domino in één pak.</p></div></footer>
+
+<!-- Pop-up voor de uitleg -->
+<div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="m-titel">
+  <div class="modal-doos">
+    <button class="sluit" aria-label="Sluiten">×</button>
+    <h3 id="m-titel"></h3>
+    <div class="stagewrap"><div class="stage" id="stage"></div></div>
+    <p class="m-tekst" id="m-tekst" aria-live="polite"></p>
+    <div class="m-nav"><button id="m-vorige">Terug</button><span class="dots" id="dots"></span><button id="m-volgende">Volgende</button></div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
