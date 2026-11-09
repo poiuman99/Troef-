@@ -3,33 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TROEF! – Kaarten, kwartet en domino in één pak</title>
+<title>TROEF! – Zes kaartspellen in één pak</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<!-- Bedankbanner: vul [naam goed doel] in -->
-<div class="banner">Bedankt dat je ons steunt! Met elk pak TROEF! help je ook [naam goed doel]. <a href="#steun">Lees hoe</a></div>
-
 <header><div class="wrap"><nav aria-label="Hoofdmenu">
-  <a class="logo" href="#top">TROEF!</a>
+  <a class="logo" href="#top" aria-label="TROEF! - naar begin"><img class="logo-afbeelding" src="img/logo_zwart.png" alt="TROEF!"></a>
   <ul>
-    <li><a href="#klassiek">Klassiek</a></li><li><a href="#kwartet">Kwartet</a></li><li><a href="#domino">Domino</a></li><li><a href="#extra">Meer spellen</a></li>
-    <li><a class="knop klein" href="#steun">Koop een pak</a></li>
+    <li><a href="#spellen">Spellen</a></li><li><a href="#steun">Over ons</a></li>
   </ul>
 </nav></div></header>
 
 <main id="top">
 <div class="wrap hero">
   <div>
-    <h1>TROEF!</h1>
-    <p>Eén pak kaarten, drie spellen. Bekijk per spel een korte uitleg en probeer het zelf.</p>
-    <a class="knop" href="#klassiek">Leer de spellen</a>
+    <h1><img class="logo-afbeelding hero-logo" src="img/logo_zwart.png" alt="TROEF!"></h1>
+    <p>Eén pak kaarten, zes spellen. Kies een spel, bekijk de uitleg en probeer het zelf.</p>
+    <a class="knop" href="#spellen">Kies een spel</a>
   </div>
-  <div class="motief" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <img class="hero-kaart" src="img/kaarten/1-bloemen/1-harte.png" alt="TROEF! hartenkaart met bloemillustratie en dominostenen">
 </div>
+
+<section class="spellen-overzicht" id="spellen" aria-labelledby="spellen-titel"><div class="wrap">
+  <p class="spel-bijschrift">KIES JE SPEL</p>
+  <h2 id="spellen-titel">Waar heb je zin in?</h2>
+  <div class="spel-grid">
+    <button class="spel-tegel tegel-wiezen" type="button" data-tut="wiezen"><span class="tegel-beeld" aria-hidden="true">♥</span><span class="tegel-naam">Wiezen</span><span class="tegel-info">Slagen &amp; troef</span></button>
+    <button class="spel-tegel tegel-kwartet" type="button" data-tut="kwartet"><span class="tegel-beeld" aria-hidden="true">4</span><span class="tegel-naam">Kwartet</span><span class="tegel-info">Verzamel families</span></button>
+    <button class="spel-tegel tegel-domino" type="button" data-tut="domino"><span class="tegel-dubbel" aria-hidden="true"><i></i><i></i></span><span class="tegel-naam">Domino</span><span class="tegel-info">Leg gelijke kanten</span></button>
+    <button class="spel-tegel tegel-pesten" type="button" data-tut="pesten"><span class="tegel-beeld" aria-hidden="true">7</span><span class="tegel-naam">Pesten</span><span class="tegel-info">Speel je hand leeg</span></button>
+    <button class="spel-tegel tegel-liegen" type="button" data-tut="liegen"><span class="tegel-beeld" aria-hidden="true">?</span><span class="tegel-naam">Liegen</span><span class="tegel-info">Bluf of ontmasker</span></button>
+    <button class="spel-tegel tegel-oorlog" type="button" data-tut="oorlog"><span class="tegel-beeld" aria-hidden="true">⚔</span><span class="tegel-naam">Oorlog</span><span class="tegel-info">Hoogste kaart wint</span></button>
+  </div>
+</div></section>
 
 <section id="steun"><div class="wrap">
   <div class="steunblok">
@@ -40,59 +49,170 @@
   </div>
 </div></section>
 
-<section id="klassiek"><div class="wrap">
-  <h2>Klassiek kaarten</h2>
-  <p class="intro">Een pak heeft 52 kaarten. Er zijn 4 symbolen (harten, ruiten, klaveren en schoppen) en elk symbool heeft 13 kaarten, van laag naar hoog.</p>
-  <div class="rij-kaarten" id="klassiek-rij" aria-label="Alle 13 kaarten van harten"></div>
-  <p class="onder">2 t/m 10, daarna boer (J), vrouw (Q), heer (K) en aas (A).</p>
-  <ul class="feiten"><li>52 kaarten</li><li>4 symbolen</li><li>13 waarden per symbool</li></ul>
-  <button class="knop uitleg-knop" data-tut="klassiek">Bekijk de uitleg</button>
-</div></section>
-
-<section id="kwartet"><div class="wrap">
-  <h2>Kwartet</h2>
-  <p class="intro">Elke kaart hoort bij een familie van 4 kaarten. Rechtsboven staat welke kaart het is: “3/4” is kaart 3 van 4. Verzamel alle 4 en je hebt een kwartet.</p>
-  <div class="rij-kaarten" id="kwartet-rij" aria-label="De familie Vogels"></div>
-  <p class="onder">De familie Vogels: 4 kaarten, dus 1 kwartet.</p>
-  <ul class="feiten"><li>2 tot 6 spelers</li><li>5 kaarten per speler</li><li>Meeste kwartetten wint</li></ul>
-  <button class="knop uitleg-knop" data-tut="kwartet">Bekijk de uitleg</button>
-</div></section>
-
-<section id="domino"><div class="wrap">
-  <h2>Domino</h2>
-  <p class="intro">Onderaan elke kaart staan twee waarden met stippen. Leg kaarten aan elkaar zodat dezelfde stippen elkaar raken. Probeer het zelf: klik op een kaart met een gele rand.</p>
-  <div class="demo" id="demo-domino">
-    <p class="label">Rij op tafel</p>
-    <div class="tafel rij" id="dm-rij"></div>
-    <p class="label">Jouw hand</p>
-    <div class="dm-onder">
-      <div class="tafel rij" id="dm-hand"></div>
-      <div class="stapel"><div class="steen dicht" id="dm-stapel"></div><span>Stapel</span></div>
-    </div>
-    <p class="uitleg" id="dm-tekst" aria-live="polite"></p>
-    <div class="stappen"><button id="dm-pak">Pak een kaart</button><button id="dm-reset">Opnieuw</button></div>
+<section class="spel-detail" id="wiezen" aria-labelledby="wiezen-titel"><div class="wrap">
+  <a class="terug-spellen" href="#spellen">Alle spellen</a>
+  <div class="spel-kop">
+    <div><p class="spel-bijschrift">KAARTSLAGEN VOOR VIER</p><h2 id="wiezen-titel">Wiezen</h2><p class="intro">Probeer met je kaarten het afgesproken aantal slagen te halen. Volg het symbool dat wordt gevraagd en zet troef slim in.</p></div>
+    <div class="spel-stat"><strong>4</strong><span>spelers</span><span>13 kaarten p.p.</span></div>
   </div>
-  <ul class="feiten"><li>2 tot 4 spelers</li><li>7 kaarten per speler</li><li>Eerste met lege hand wint</li></ul>
-  <button class="knop uitleg-knop" data-tut="domino">Bekijk de uitleg</button>
+  <div class="uitleg-layout">
+    <div class="uitleg-beeld">
+      <p class="voorbeeld-label">Een slag op tafel</p>
+      <div class="rij-kaarten" id="klassiek-rij" aria-label="Kaarten van laag naar hoog in harten"></div>
+      <p class="onder">2 t/m 10, boer, vrouw, heer en aas. Aas is hier het hoogst.</p>
+      <div class="voorbeeld-slag">
+        <p>Iedereen speelt een kaart</p>
+        <div class="rij-kaarten mini" data-kaarten="10D,KC,7D,AD" aria-label="Voorbeeld van vier kaarten in een slag"></div>
+        <p class="voorbeeld-uitkomst">De hoogste kaart van de gevraagde kleur wint</p>
+      </div>
+    </div>
+    <div class="spel-regels">
+      <h3>Zo speel je</h3>
+      <ol class="uitleg-stappen">
+        <li><span>01</span><div><strong>Deel en spreek af</strong><p>Iedere speler krijgt 13 kaarten. Bepaal welk contract en welke troefkleur geldt.</p></div></li>
+        <li><span>02</span><div><strong>Volg de kleur</strong><p>De eerste speler legt een kaart. Heb je die kleur, dan speel je die kleur.</p></div></li>
+        <li><span>03</span><div><strong>Win de slag</strong><p>De hoogste kaart van de gevraagde kleur wint, tenzij een troefkaart de slag neemt.</p></div></li>
+      </ol>
+      <button class="knop uitleg-knop" data-tut="wiezen">Bekijk de stap-voor-stap uitleg</button>
+    </div>
+  </div>
 </div></section>
 
-<section id="extra"><div class="wrap">
-  <h2>Meer kaartspelen</h2>
-  <p class="intro">Met de gewone kaarten speel je nog veel meer.</p>
-  <details open>
-    <summary>Pesten</summary>
-    <div class="inhoud">
-      <p>2 tot 6 spelers. Leg een kaart met hetzelfde symbool of dezelfde waarde. Wie als eerste geen kaarten meer heeft, wint. Speciale kaarten:</p>
-      <div class="rij-kaarten mini" data-kaarten="2H,7S,8D,JC,AH"></div>
-      <ul><li><strong>2:</strong> de volgende pakt 2 kaarten.</li><li><strong>7:</strong> je mag nog een keer.</li><li><strong>8:</strong> de volgende slaat over.</li><li><strong>Boer (J):</strong> jij kiest het symbool.</li><li><strong>Aas:</strong> de richting draait om.</li></ul>
+<section class="spel-detail" id="kwartet" aria-labelledby="kwartet-titel"><div class="wrap">
+  <a class="terug-spellen" href="#spellen">Alle spellen</a>
+  <div class="spel-kop">
+    <div><p class="spel-bijschrift">VERZAMEL DE FAMILIES</p><h2 id="kwartet-titel">Kwartet</h2><p class="intro">Vraag kaarten aan elkaar en verzamel complete families van vier. Kijk naar de naam en het kaartnummer om te zien wat je nog mist.</p></div>
+    <div class="spel-stat"><strong>4</strong><span>kaarten per familie</span><span>2 tot 6 spelers</span></div>
+  </div>
+  <div class="uitleg-layout">
+    <div class="uitleg-beeld">
+      <p class="voorbeeld-label">Familie Vogels</p>
+      <div class="rij-kaarten kwartet-kaarten" id="kwartet-rij" aria-label="De vier kaarten van de familie Vogels"></div>
+      <p class="voorbeeld-uitkomst">Vier kaarten samen maken één kwartet</p>
     </div>
-  </details>
-  <details><summary>Liegen</summary><div class="inhoud"><p>Leg kaarten gesloten neer en zeg wat het is. Gelooft de volgende speler je niet? Dan roept hij “Liegen!” en draait de kaarten om. Wie het fout had, pakt de stapel. Wie als eerste geen kaarten meer heeft, wint.</p></div></details>
-  <details><summary>Oorlog</summary><div class="inhoud"><p>Twee spelers draaien tegelijk een kaart om. De hoogste wint beide. Gelijk? Dan is het oorlog: leg 3 kaarten gesloten neer en draai er nog één om.</p></div></details>
+    <div class="spel-regels">
+      <h3>Zo speel je</h3>
+      <ol class="uitleg-stappen">
+        <li><span>01</span><div><strong>Vraag om een kaart</strong><p>Vraag een speler om een kaart uit een familie waarvan je zelf al een kaart hebt.</p></div></li>
+        <li><span>02</span><div><strong>Goed geraden?</strong><p>Je krijgt de kaart en mag nog een keer vragen. Anders pak je een kaart van de stapel.</p></div></li>
+        <li><span>03</span><div><strong>Maak een kwartet</strong><p>Leg alle vier kaarten van een familie open neer. Elk compleet kwartet is een punt.</p></div></li>
+      </ol>
+      <button class="knop uitleg-knop" data-tut="kwartet">Bekijk de stap-voor-stap uitleg</button>
+    </div>
+  </div>
+</div></section>
+
+<section class="spel-detail" id="domino" aria-labelledby="domino-titel"><div class="wrap">
+  <a class="terug-spellen" href="#spellen">Alle spellen</a>
+  <div class="spel-kop">
+    <div><p class="spel-bijschrift">PAS DE STIPPEN AAN ELKAAR</p><h2 id="domino-titel">Domino</h2><p class="intro">Leg een steen aan een uiteinde van de rij als het aantal stippen daar overeenkomt. Speel al je stenen weg voordat de anderen dat doen.</p></div>
+    <div class="spel-stat"><strong>7</strong><span>stenen per speler</span><span>2 tot 4 spelers</span></div>
+  </div>
+  <div class="uitleg-layout domino-layout">
+    <div class="uitleg-beeld">
+      <p class="voorbeeld-label">Probeer het zelf</p>
+      <div class="demo" id="demo-domino">
+        <p class="label">Rij op tafel</p>
+        <div class="tafel rij" id="dm-rij"></div>
+        <p class="label">Jouw hand</p>
+        <div class="dm-onder">
+          <div class="tafel rij" id="dm-hand"></div>
+          <div class="stapel"><div class="steen dicht" id="dm-stapel"></div><span>Stapel</span></div>
+        </div>
+        <p class="uitleg" id="dm-tekst" aria-live="polite"></p>
+        <div class="stappen"><button id="dm-pak">Pak een kaart</button><button id="dm-reset">Opnieuw</button></div>
+      </div>
+    </div>
+    <div class="spel-regels">
+      <h3>Zo speel je</h3>
+      <ol class="uitleg-stappen">
+        <li><span>01</span><div><strong>Zoek een gelijke kant</strong><p>Vergelijk de stippen aan de uiteinden met de stenen in je hand.</p></div></li>
+        <li><span>02</span><div><strong>Leg aan of pak</strong><p>Leg een passende steen aan. Past niets? Pak een steen van de stapel.</p></div></li>
+        <li><span>03</span><div><strong>Raak je stenen kwijt</strong><p>De eerste speler zonder stenen wint.</p></div></li>
+      </ol>
+      <button class="knop uitleg-knop" data-tut="domino">Bekijk de stap-voor-stap uitleg</button>
+    </div>
+  </div>
+</div></section>
+
+<section class="spel-detail neven-spel" id="pesten" aria-labelledby="pesten-titel"><div class="wrap">
+  <a class="terug-spellen" href="#spellen">Alle spellen</a>
+  <div class="spel-kop">
+    <div><p class="spel-bijschrift">SPEEL JE HAND LEEG</p><h2 id="pesten-titel">Pesten</h2><p class="intro">Leg een kaart met dezelfde waarde of hetzelfde symbool als de bovenste kaart. Speciale kaarten veranderen de beurt.</p></div>
+    <div class="spel-stat"><strong>2–6</strong><span>spelers</span><span>eerste lege hand wint</span></div>
+  </div>
+  <div class="uitleg-layout">
+    <div class="uitleg-beeld">
+      <p class="voorbeeld-label">Onthoud deze kaarten</p>
+      <div class="rij-kaarten mini pest-kaarten" data-kaarten="2H,7S,8D,JC,AH" aria-label="Voorbeelden van speciale pestkaarten"></div>
+      <div class="effecten-grid">
+        <div><span>2</span><strong>Pak 2</strong></div><div><span>7</span><strong>Nog een keer</strong></div>
+        <div><span>8</span><strong>Sla over</strong></div><div><span>J</span><strong>Kies symbool</strong></div>
+        <div><span>A</span><strong>Draai om</strong></div>
+      </div>
+    </div>
+    <div class="spel-regels">
+      <h3>Zo speel je</h3>
+      <ol class="uitleg-stappen">
+        <li><span>01</span><div><strong>Match de kaart</strong><p>Leg dezelfde waarde of hetzelfde symbool op de aflegstapel.</p></div></li>
+        <li><span>02</span><div><strong>Voer het effect uit</strong><p>De speciale kaart bepaalt wat de volgende speler moet doen.</p></div></li>
+        <li><span>03</span><div><strong>Wees als eerste leeg</strong><p>Speel al je kaarten weg om het spel te winnen.</p></div></li>
+      </ol>
+    </div>
+  </div>
+</div></section>
+
+<section class="spel-detail neven-spel" id="liegen" aria-labelledby="liegen-titel"><div class="wrap">
+  <a class="terug-spellen" href="#spellen">Alle spellen</a>
+  <div class="spel-kop">
+    <div><p class="spel-bijschrift">BLUF OF ONTMASKER</p><h2 id="liegen-titel">Liegen</h2><p class="intro">Leg kaarten gesloten neer en noem een waarde. De volgende speler kiest: geloven of “Liegen!” roepen.</p></div>
+    <div class="spel-stat"><strong>1</strong><span>goede bluf?</span><span>of roep Liegen!</span></div>
+  </div>
+  <div class="uitleg-layout">
+    <div class="uitleg-beeld lieg-voorbeeld">
+      <p class="voorbeeld-label">Je zegt: “drie boeren”</p>
+      <div class="rij-kaarten mini" data-kaarten="JC,JD,JS" data-dicht="true" aria-label="Drie gesloten kaarten"></div>
+      <p class="voorbeeld-uitkomst">De volgende speler roept: “Liegen!”</p>
+      <div class="rij-kaarten mini onthulling" data-kaarten="JC,JD,4S" aria-label="Twee boeren en een vier, dus de bluf klopt niet"></div>
+      <p class="onder">De bluf klopt niet: de verliezer pakt de stapel.</p>
+    </div>
+    <div class="spel-regels">
+      <h3>Zo speel je</h3>
+      <ol class="uitleg-stappen">
+        <li><span>01</span><div><strong>Leg gesloten neer</strong><p>Speel één of meer kaarten om en zeg welke waarde erop ligt.</p></div></li>
+        <li><span>02</span><div><strong>Geloof het of daag uit</strong><p>De volgende speler mag de kaarten laten liggen of “Liegen!” roepen.</p></div></li>
+        <li><span>03</span><div><strong>Draai de kaarten om</strong><p>Wie ongelijk had, pakt de stapel. Raak als eerste al je kaarten kwijt.</p></div></li>
+      </ol>
+    </div>
+  </div>
+</div></section>
+
+<section class="spel-detail neven-spel" id="oorlog" aria-labelledby="oorlog-titel"><div class="wrap">
+  <a class="terug-spellen" href="#spellen">Alle spellen</a>
+  <div class="spel-kop">
+    <div><p class="spel-bijschrift">HOOGSTE KAART WINT</p><h2 id="oorlog-titel">Oorlog</h2><p class="intro">Draai tegelijk een kaart om. De hoogste kaart wint de ronde en neemt beide kaarten.</p></div>
+    <div class="spel-stat"><strong>2</strong><span>spelers</span><span>aas is hoogst</span></div>
+  </div>
+  <div class="uitleg-layout">
+    <div class="uitleg-beeld oorlog-voorbeeld">
+      <p class="voorbeeld-label">De ronde</p>
+      <div class="oorlog-kaarten"><div><span>Anna</span><div class="rij-kaarten mini" data-kaarten="AH" aria-label="Aas van harten"></div></div><b>tegen</b><div><span>Bram</span><div class="rij-kaarten mini" data-kaarten="KD" aria-label="Koning van ruiten"></div></div></div>
+      <p class="voorbeeld-uitkomst">Aas verslaat koning: Anna wint beide kaarten</p>
+      <div class="gelijk-voorbeeld"><span>Gelijk? Dan is het oorlog.</span><div class="rij-kaarten mini" data-kaarten="8H,8S" aria-label="Twee gelijke achten"></div></div>
+    </div>
+    <div class="spel-regels">
+      <h3>Zo speel je</h3>
+      <ol class="uitleg-stappen">
+        <li><span>01</span><div><strong>Draai tegelijk om</strong><p>Beide spelers leggen hun bovenste kaart open.</p></div></li>
+        <li><span>02</span><div><strong>Vergelijk de waarde</strong><p>De hoogste kaart wint en neemt de kaarten van deze ronde.</p></div></li>
+        <li><span>03</span><div><strong>Bij gelijk: oorlog</strong><p>Leg drie kaarten gesloten neer en draai daarna nog één kaart om. De winnaar neemt de hele stapel.</p></div></li>
+      </ol>
+    </div>
+  </div>
 </div></section>
 </main>
 
-<footer><div class="wrap"><span class="logo">TROEF!</span><p>Een schoolproject. Kaarten, kwartet en domino in één pak.</p></div></footer>
+<footer><div class="wrap"><img class="logo-afbeelding footer-logo" src="img/logo_zwart.png" alt="TROEF!"><p>Een schoolproject. Zes spellen in één pak.</p></div></footer>
 
 <!-- Pop-up voor de uitleg -->
 <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="m-titel">

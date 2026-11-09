@@ -20,15 +20,17 @@
 
 /* ---------- 1. Variabelen ---------- */
 :root {
-  --papier: #F4EFE4;
-  --inkt: #1D2A45;
-  --rood: #E4473B;
-  --geel: #F2B431;
+  --papier: #F7EED9;
+  --inkt: #76232A;
+  --rood: #E92F39;
+  --geel: #FFF4B5;
   --blauw: #2F5E9E;
   --groen: #2F7D5B;
   --roze: #F1A9B4;
   --oranje: #EE7B30;
-  --lijn: #D9D2C2;
+  --lijn: #DCA9A0;
+  --rood-donker: #A6262D;
+  --rood-diep: #821F28;
 
   /* zorgt dat het uitklapmenu soepel open en dicht gaat */
   interpolate-size: allow-keywords;
@@ -51,6 +53,7 @@ body {
   line-height: 1.6;
   background: var(--papier);
   color: var(--inkt);
+  background-image: linear-gradient(90deg, transparent 49.8%, rgba(166, 38, 45, 0.035) 50%, transparent 50.2%);
 }
 
 h1,
@@ -83,9 +86,9 @@ button {
   display: inline-block;
   padding: 12px 24px;
   border: 0;
-  border-radius: 999px;
-  background: var(--inkt);
-  color: var(--papier);
+  border-radius: 3px;
+  background: var(--rood-diep);
+  color: var(--geel);
   font: inherit;
   font-weight: 700;
   text-decoration: none;
@@ -110,7 +113,8 @@ button:disabled {
 
 .knop.klein {
   padding: 6px 16px;
-  background: var(--rood);
+  background: var(--geel);
+  color: var(--rood-diep);
 }
 
 .knop.licht {
@@ -127,15 +131,12 @@ button:disabled {
 
 /* ---------- 4. Banner en navigatie ---------- */
 .banner {
-  padding: 10px 16px;
-  background: var(--geel);
-  text-align: center;
-  font-size: 0.95rem;
-  font-weight: 500;
+  display: none;
 }
 
 header {
-  border-bottom: 2px solid var(--inkt);
+  background: var(--rood-diep);
+  color: var(--geel);
 }
 
 nav {
@@ -144,13 +145,24 @@ nav {
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  padding: 14px 0;
+  padding: 16px 0;
 }
 
 .logo {
-  font-family: 'Archivo Black', sans-serif;
-  font-size: 1.6rem;
+  display: block;
+  line-height: 0;
   text-decoration: none;
+}
+
+.logo-afbeelding {
+  display: block;
+  width: 130px;
+  height: auto;
+}
+
+header .logo-afbeelding,
+footer .footer-logo {
+  filter: brightness(0) saturate(100%) invert(94%) sepia(22%) saturate(397%) hue-rotate(2deg) brightness(105%) contrast(102%);
 }
 
 nav ul {
@@ -165,32 +177,65 @@ nav ul {
 nav ul a:not(.knop) {
   font-weight: 500;
   text-decoration: none;
+  color: var(--geel);
 }
 
 nav ul a:not(.knop):hover {
   text-decoration: underline;
   text-decoration-thickness: 3px;
-  text-decoration-color: var(--rood);
+  text-decoration-color: var(--geel);
 }
 
 
 /* ---------- 5. Hero ---------- */
 .hero {
+  position: relative;
+  isolation: isolate;
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 48px;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 56px;
   align-items: center;
-  padding: 56px 24px;
+  width: 100%;
+  max-width: none;
+  min-height: 650px;
+  margin: 0;
+  padding: 72px max(24px, calc((100vw - 1080px) / 2 + 24px));
+  overflow: hidden;
+  background-color: var(--rood-donker);
+  background-image:
+    radial-gradient(circle at 17% 0%, #F13B42 0 175px, transparent 176px),
+    radial-gradient(circle at 88% 93%, #ED343B 0 220px, transparent 221px),
+    linear-gradient(90deg, transparent 0 49.9%, rgba(120, 27, 35, 0.2) 50% 100%),
+    linear-gradient(0deg, transparent 0 49.9%, rgba(255, 244, 181, 0.04) 50% 100%);
+  background-size: auto, auto, 384px 384px, 384px 384px;
+  color: var(--geel);
 }
 
 .hero h1 {
-  font-size: clamp(3.6rem, 10vw, 7rem);
+  margin-bottom: 22px;
+  font-size: 1rem;
+}
+
+.hero-logo {
+  width: min(100%, 570px);
+  filter: brightness(0) saturate(100%) invert(94%) sepia(22%) saturate(397%) hue-rotate(2deg) brightness(105%) contrast(102%);
 }
 
 .hero p {
   max-width: 34ch;
-  margin: 20px 0 28px;
-  font-size: 1.25rem;
+  margin: 0 0 28px;
+  font-size: 1.2rem;
+}
+
+.hero-kaart {
+  display: block;
+  width: min(100%, 340px);
+  height: auto;
+  justify-self: center;
+  border: 5px solid var(--geel);
+  border-radius: 3px;
+  box-shadow: 16px 18px 0 rgba(99, 22, 30, 0.45);
+  transform: rotate(3deg);
 }
 
 /* het vormenpatroon (3 x 3 vakjes) */
@@ -223,13 +268,27 @@ nav ul a:not(.knop):hover {
 
 /* ---------- 6. Secties ---------- */
 section {
-  padding: 56px 0;
-  border-top: 2px solid var(--inkt);
+  padding: 76px 0;
+  border-top: 0;
 }
 
 section h2 {
-  margin-bottom: 12px;
-  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 14px;
+  font-size: 2.7rem;
+  line-height: 1.08;
+  text-transform: uppercase;
+  color: var(--rood-diep);
+}
+
+#klassiek,
+#domino {
+  background: var(--papier);
+}
+
+#kwartet,
+#extra {
+  background-color: #F1DCC7;
+  background-image: linear-gradient(90deg, transparent 49.8%, rgba(166, 38, 45, 0.05) 50%, transparent 50.2%);
 }
 
 .intro {
@@ -253,8 +312,10 @@ section h2 {
 
 .feiten li {
   padding: 4px 14px;
-  border: 2px solid var(--inkt);
-  border-radius: 999px;
+  border: 1px solid var(--rood-donker);
+  border-radius: 2px;
+  background: var(--geel);
+  color: var(--rood-diep);
   font-size: 0.95rem;
   font-weight: 500;
 }
@@ -263,22 +324,26 @@ section h2 {
 /* ---------- 7. Steunblok ---------- */
 #steun {
   padding: 40px 0;
+  background: var(--rood);
 }
 
 .steunblok {
   display: flex;
-  flex-wrap: wrap;
+  background: var(--rood);
+  background: var(--rood);
   justify-content: space-between;
   align-items: center;
   gap: 28px;
-  padding: 32px;
-  border: 3px solid var(--inkt);
-  border-radius: 24px;
-  background: var(--roze);
+  padding: 28px;
+  border: 2px solid var(--geel);
+  border-radius: 17px;
+  background: var(--rood-diep);
+  color: var(--geel);
 }
 
 .steunblok h2 {
   margin-bottom: 8px;
+  color: var(--geel);
 }
 
 .steunblok p {
@@ -294,11 +359,18 @@ section h2 {
   flex: none;
   width: 84px;
   height: 120px;
-  border: 2px solid var(--inkt);
-  border-radius: 12px;
-  background: #fff;
+  border: 2px solid var(--rood-diep);
+  border-radius: 3px;
+  background: var(--papier);
   color: var(--inkt);
   transition: transform 0.35s, opacity 0.35s, box-shadow 0.35s;
+}
+
+.kaart > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .kaart.rood {
@@ -327,13 +399,19 @@ section h2 {
 }
 
 .band {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 1;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
   padding: 4px 6px;
-  background: var(--c);
-  color: #fff;
-  font-size: 0.72rem;
+  background: var(--rood-diep);
+  color: var(--geel);
+  font-size: 0.6rem;
   font-weight: 700;
+  line-height: 1.05;
 }
 
 .kaart.fam .midden {
@@ -357,7 +435,8 @@ section h2 {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: repeating-linear-gradient(45deg, var(--blauw) 0 8px, var(--geel) 8px 16px);
+  background-color: var(--rood);
+  background-image: repeating-linear-gradient(45deg, transparent 0 9px, rgba(255, 244, 181, 0.8) 9px 12px), linear-gradient(135deg, var(--rood) 0 48%, var(--rood-donker) 48% 100%);
   opacity: 0;
   transition: opacity 0.45s;
   pointer-events: none;
@@ -406,9 +485,9 @@ section h2 {
   width: 104px;
   height: 66px;
   overflow: hidden;
-  border: 2px solid var(--inkt);
-  border-radius: 10px;
-  background: #fff;
+  border: 2px solid var(--rood-diep);
+  border-radius: 3px;
+  background: var(--papier);
   color: var(--inkt);
   transition: box-shadow 0.3s;
 }
@@ -418,7 +497,7 @@ section h2 {
   place-items: center;
   width: 50px;
   height: 62px;
-  border-right: 2px solid var(--inkt);
+  border-right: 2px solid var(--rood-diep);
 }
 
 .helft:last-child {
@@ -438,7 +517,7 @@ section h2 {
 }
 
 .dobbel b.aan {
-  background: var(--inkt);
+  background: var(--rood-diep);
 }
 
 .steen.past {
@@ -478,18 +557,20 @@ section h2 {
   gap: 14px;
   margin-bottom: 22px;
   padding: 26px;
-  border-radius: 24px;
-  background: var(--inkt);
-  color: var(--papier);
+  border: 2px solid var(--rood-diep);
+  border-radius: 3px;
+  background: var(--rood-diep);
+  color: var(--geel);
 }
 
 .demo button {
   background: var(--geel);
-  color: var(--inkt);
+  color: var(--rood-diep);
 }
 
 .demo button:hover:not(:disabled) {
-  background: var(--papier);
+  background: var(--rood);
+  color: var(--geel);
 }
 
 .tafel {
@@ -551,7 +632,7 @@ section h2 {
   display: grid;
   place-items: center;
   padding: 12px;
-  background: rgba(29, 42, 69, 0.72);
+  background: rgba(78, 17, 25, 0.82);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.35s, visibility 0s 0.35s;
@@ -570,7 +651,8 @@ section h2 {
   max-height: 96vh;
   overflow: auto;
   padding: 24px;
-  border-radius: 24px;
+  border: 3px solid var(--rood-diep);
+  border-radius: 17px;
   background: var(--papier);
   transform: translateY(30px) scale(0.95);
   transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.25, 1.1);
@@ -600,8 +682,9 @@ section h2 {
 .stagewrap {
   position: relative;
   overflow: hidden;
-  border-radius: 18px;
-  background: var(--inkt);
+  border: 2px solid var(--rood-diep);
+  border-radius: 17px;
+  background: var(--rood-diep);
 }
 
 .stage {
@@ -643,15 +726,16 @@ section h2 {
 
 .bel {
   padding: 8px 16px;
-  border-radius: 16px;
-  background: var(--papier);
+  border-radius: 3px;
+  background: var(--geel);
   color: var(--inkt);
   font-weight: 700;
   white-space: nowrap;
 }
 
 .bel.goud {
-  background: var(--geel);
+  background: var(--rood);
+  color: var(--geel);
 }
 
 .m-tekst {
@@ -691,7 +775,7 @@ section h2 {
 /* ---------- 12. Uitklapmenu (Meer kaartspelen) ---------- */
 details {
   padding: 18px 0;
-  border-bottom: 1px solid var(--lijn);
+  border-bottom: 2px solid var(--rood-donker);
 }
 
 details::details-content {
@@ -739,26 +823,415 @@ details[open] summary::after {
 
 /* ---------- 13. Footer ---------- */
 footer {
-  padding: 36px 0;
-  background: var(--inkt);
-  color: var(--papier);
+  padding: 40px 0;
+  background: var(--rood-diep);
+  color: var(--geel);
   font-size: 0.95rem;
 }
 
-footer .logo {
-  display: block;
+footer .footer-logo {
+  width: 150px;
+  margin-bottom: 12px;
 }
 
 
+/* ---------- Speloverzicht en speluitleg ---------- */
+.spellen-overzicht {
+  background: var(--rood-diep);
+  color: var(--geel);
+}
+
+.spellen-overzicht h2 {
+  margin-bottom: 28px;
+  color: var(--geel);
+}
+
+.spel-bijschrift {
+  margin-bottom: 8px;
+  color: var(--rood);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.spellen-overzicht .spel-bijschrift {
+  color: var(--geel);
+}
+
+.spel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 930px;
+}
+
+.spel-tegel {
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto auto;
+  align-items: end;
+  aspect-ratio: 1;
+  min-width: 0;
+  overflow: hidden;
+  padding: 20px;
+  border-radius: 17px;
+  border: 2px solid var(--geel);
+  background-color: var(--rood-donker);
+  background-image: linear-gradient(135deg, transparent 48%, rgba(120, 27, 35, 0.55) 48% 100%);
+  color: var(--geel);
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.spel-tegel:hover {
+  background-color: var(--rood);
+  color: var(--geel);
+  transform: translateY(-4px);
+}
+
+.tegel-beeld {
+  display: grid;
+  place-items: center;
+  align-self: center;
+  justify-self: center;
+  color: var(--geel);
+  font-family: 'Archivo Black', 'Arial Black', sans-serif;
+  font-size: 5rem;
+  line-height: 1;
+}
+
+.tegel-wiezen .tegel-beeld,
+.tegel-oorlog .tegel-beeld {
+  color: #F44949;
+  text-shadow: 3px 3px 0 var(--geel);
+}
+
+.tegel-kwartet .tegel-beeld {
+  display: grid;
+  place-items: center;
+  width: 94px;
+  height: 118px;
+  border: 3px solid var(--geel);
+  background: var(--rood);
+  color: var(--geel);
+}
+
+.tegel-dubbel {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  width: 132px;
+  height: 64px;
+  border: 3px solid var(--geel);
+}
+
+.tegel-dubbel i {
+  flex: 1;
+  background-image: radial-gradient(circle, var(--geel) 0 5px, transparent 6px);
+  background-position: center;
+}
+
+.tegel-dubbel i + i {
+  border-left: 2px solid var(--geel);
+}
+
+.tegel-naam {
+  display: block;
+  font-family: 'Archivo Black', 'Arial Black', sans-serif;
+  font-size: 1.45rem;
+  line-height: 1.1;
+}
+
+.tegel-info {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.9rem;
+}
+
+.spel-detail {
+  display: none;
+  scroll-margin-top: 16px;
+}
+
+#wiezen,
+#domino,
+#pesten {
+  background: var(--papier);
+}
+
+#kwartet,
+#liegen {
+  background: #F1DCC7;
+}
+
+#oorlog {
+  background: var(--rood-donker);
+  color: var(--geel);
+}
+
+#oorlog h2,
+#oorlog .spel-bijschrift {
+  color: var(--geel);
+}
+
+#oorlog .spel-stat {
+  background: var(--geel);
+  color: var(--rood-diep);
+}
+
+.terug-spellen {
+  display: inline-block;
+  margin-bottom: 28px;
+  color: var(--rood-diep);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+#oorlog .terug-spellen {
+  color: var(--geel);
+}
+
+.spel-kop {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 170px;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 36px;
+}
+
+.spel-kop h2 {
+  margin-bottom: 14px;
+}
+
+.spel-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  padding: 12px;
+  background: var(--rood-diep);
+  color: var(--geel);
+  text-align: center;
+}
+
+.spel-stat strong {
+  font-family: 'Archivo Black', 'Arial Black', sans-serif;
+  font-size: 2.4rem;
+  line-height: 1.1;
+}
+
+.spel-stat span {
+  font-size: 0.85rem;
+}
+
+.uitleg-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: start;
+  gap: 48px;
+}
+
+.uitleg-beeld {
+  min-width: 0;
+  padding: 12px 24px 12px 0;
+  border-right: 2px solid var(--lijn);
+}
+
+#oorlog .uitleg-beeld {
+  border-color: rgba(255, 244, 181, 0.45);
+}
+
+.voorbeeld-label,
+.voorbeeld-uitkomst {
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.voorbeeld-uitkomst {
+  margin: 18px 0 0;
+  color: var(--rood-diep);
+}
+
+#oorlog .voorbeeld-uitkomst {
+  color: var(--geel);
+}
+
+.uitleg-beeld .rij-kaarten {
+  align-items: flex-start;
+}
+
+.uitleg-beeld .mini .kaart {
+  width: 58px;
+  height: 82px;
+}
+
+.uitleg-beeld .mini .midden {
+  font-size: 1.6rem;
+}
+
+.voorbeeld-slag {
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid var(--lijn);
+}
+
+.voorbeeld-slag > p:first-child {
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.spel-regels h3 {
+  margin-bottom: 12px;
+  font-family: 'Archivo Black', 'Arial Black', sans-serif;
+  font-size: 1.35rem;
+}
+
+.uitleg-stappen {
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+}
+
+.uitleg-stappen li {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  align-items: start;
+  gap: 14px;
+  padding: 14px 0;
+  border-top: 1px solid var(--lijn);
+}
+
+.uitleg-stappen li > span {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  background: var(--rood-diep);
+  color: var(--geel);
+  font-weight: 700;
+}
+
+.uitleg-stappen p {
+  margin-top: 4px;
+  font-size: 0.95rem;
+}
+
+.spel-detail .knop {
+  padding: 10px 16px;
+}
+
+.kwartet-kaarten .kaart {
+  width: 82px;
+  height: 116px;
+}
+
+.kwartet-kaarten .midden {
+  font-size: 2.4rem;
+}
+
+.pest-kaarten {
+  margin-bottom: 24px;
+}
+
+.effecten-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.effecten-grid div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.effecten-grid span {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  background: var(--rood-diep);
+  color: var(--geel);
+  font-weight: 700;
+}
+
+.effecten-grid strong {
+  font-size: 0.85rem;
+}
+
+.lieg-voorbeeld > .rij-kaarten {
+  margin: 10px 0;
+}
+
+.lieg-voorbeeld > .voorbeeld-uitkomst {
+  padding: 10px 0;
+  border-top: 1px solid var(--lijn);
+}
+
+.onthulling .kaart:nth-child(3) {
+  box-shadow: 0 0 0 3px var(--rood);
+}
+
+.oorlog-kaarten {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.oorlog-kaarten > div {
+  display: grid;
+  gap: 8px;
+}
+
+.oorlog-kaarten > b {
+  align-self: center;
+  color: var(--geel);
+}
+
+.gelijk-voorbeeld {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 244, 181, 0.45);
+}
+
+#oorlog .uitleg-stappen li {
+  border-color: rgba(255, 244, 181, 0.45);
+}
+
+#oorlog .uitleg-stappen li > span {
+  background: var(--geel);
+  color: var(--rood-diep);
+}
+
 /* ---------- 14. Responsive (mobiel) ---------- */
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   body {
     font-size: 17px;
   }
 
   .hero {
     grid-template-columns: 1fr;
-    padding: 36px 24px;
+    gap: 34px;
+    min-height: 0;
+    padding: 58px 24px 64px;
+  }
+
+  .hero-kaart {
+    width: min(58vw, 250px);
+    justify-self: start;
+    margin-left: 8px;
   }
 
   .knop.licht {
@@ -775,6 +1248,80 @@ footer .logo {
 
   .modal-doos {
     padding: 16px;
+  }
+
+  section {
+    padding: 56px 0;
+  }
+
+  section h2 {
+    font-size: 2rem;
+  }
+
+  .spel-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .spel-tegel {
+    padding: 14px;
+  }
+
+  .tegel-beeld {
+    font-size: 3.6rem;
+  }
+
+  .tegel-naam {
+    font-size: 1.15rem;
+  }
+
+  .tegel-info {
+    font-size: 0.8rem;
+  }
+
+  .tegel-kwartet .tegel-beeld {
+    width: 68px;
+    height: 88px;
+    font-size: 3rem;
+  }
+
+  .tegel-dubbel {
+    width: 96px;
+    height: 48px;
+  }
+
+  .spel-kop {
+    grid-template-columns: minmax(0, 1fr) 104px;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .spel-stat strong {
+    font-size: 1.8rem;
+  }
+
+  .spel-stat span {
+    font-size: 0.72rem;
+  }
+
+  .uitleg-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .uitleg-beeld {
+    padding: 0 0 24px;
+    border-right: 0;
+    border-bottom: 2px solid var(--lijn);
+  }
+
+  .effecten-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  nav ul {
+    justify-content: flex-end;
+    gap: 8px 14px;
   }
 }
 
